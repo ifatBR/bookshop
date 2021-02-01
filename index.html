@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Book Shop</title>
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body onload="onInit()">
+        <h1>Emili's Book Shop</h1>
+        <section class="books-container">
+            <button class="add-books" onclick="onAddBook()">Add a new book</button>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th class="id" class="row-start" onclick="onSortBooks('id')">id</th>
+                        <th class="name" onclick="onSortBooks('name')">Title</th>
+                        <th class="price" onclick="onSortBooks('price')">Price</th>
+                        <th colspan="3">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="books-list"></tbody>
+            </table>
+            <section class="pagination">
+                <ul>
+                </ul>
+            </section>
+        </section>
+
+        <section class="book-details modal hide">
+            <button class="book-details hide-modal" onclick="onHideModal('.book-details')">X</button>
+            <h2 class="book-name"></h2>
+            <img src="" alt="" class="book-cover" />
+            <p class="book-description"></p>
+            <section class="rate-container">
+                <div class="rate headline">Rate:</div>
+                <div class="rate num">0</div>
+                <button class="rate" onclick="onChangeRate(-1)">-</button>
+                <button class="rate" onclick="onChangeRate(1)">+</button>
+            </section>
+        </section>
+
+        <form class="new-book modal hide" onsubmit="onSubmitBook(event)">
+            <button class="new-book hide-modal" type="button" onclick="onHideModal('.new-book')">X</button>
+            <h2>Add a new book</h2>
+            <label class="new-book name">Book name</label>
+            <input type="text" class="new-book name" name="book-name" placeholder="Book name" required/>
+            <label class="new-book price">Book price</label>
+            <input type="number" min="0" max="300" class="new-book price" name="book-price" placeholder="Book price" required />
+            <button class="new-book submit">Add Book</button>
+        </form>
+        <form class="update-price modal hide" onsubmit="onSubmitNewPrice(event,this)">
+            <button class="update-price hide-modal" type="button" onclick="onHideModal('.update-price')">X</button>
+            <label class="update-price">New Price</label>
+            <input type="text" class="update-price" name="new-price" placeholder="New price" required />
+            <button class="submit">Submit new price</button>
+        </form>
+
+        <script src="js/utils.js"></script>
+        <script src="js/service/storage-service.js"></script>
+        <script src="js/service/books-service.js"></script>
+        <script src="js/books-controller.js"></script>
+    </body>
+</html>

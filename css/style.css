@@ -1,0 +1,396 @@
+@import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: black;
+    background-image: url('../img/background2.jpg');
+    background-size: cover;
+    font-family: 'Baloo Chettan 2', cursive;
+    user-select: none;
+}
+
+table {
+    margin: auto;
+    border-spacing: 0 7px;
+    font-size: 20px;
+    width: 45vw;
+    padding: 5px 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+    color: rgb(255, 239, 219);
+    font-family: 'Sriracha', cursive;
+    margin: 15px 0 10px;
+    text-shadow: 1px 1px 10px rgb(34, 29, 22);
+}
+
+th {
+    padding: 7px;
+    color: rgb(255, 239, 219);
+    text-shadow: 1px 1px 10px rgb(34, 29, 22);
+
+    font-size: 23px;
+    font-family: 'Knewave', cursive;
+}
+
+td {
+    padding: 10px;
+    background-color: rgba(36, 23, 23, 0.788);
+    border-top: ridge rgb(255, 239, 219);
+    border-bottom: ridge rgba(255, 239, 219, 0.671);
+    color: rgb(255, 239, 219);
+}
+
+button,
+input {
+    transition: transform ease-out 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    outline: none;
+    background-color: rgba(255, 255, 240, 0.2);
+}
+
+input:hover {
+    transform: scale(1.1);
+    outline: none;
+}
+
+.books-container {
+    display: flex;
+    flex-direction: column;
+}
+.price-cell {
+    width: 70px;
+}
+
+.id-cell {
+    width: 100px;
+}
+
+.name-cell{
+    text-transform: capitalize;
+
+}
+
+.action {
+    width: 80px;
+}
+
+.action > button {
+    border-radius: 5px;
+    background-image: linear-gradient(135deg, rgb(255, 239, 219), rgba(221, 120, 38, 0.384));
+
+    color: rgba(0, 0, 0, 0.8);
+    padding: 5px;
+    font-family: 'Sriracha', cursive;
+    font-size: 15px;
+    outline: none;
+}
+
+td.row-start {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-left: ridge rgb(255, 239, 219);
+}
+
+td.row-end {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-right: ridge rgba(255, 239, 219, 0.774);
+}
+
+.add-books {
+    display: block;
+    margin: 10px auto 5px;
+    border: 3px solid rgb(255, 239, 219);
+    font-size: 20px;
+    font-family: 'Sriracha', cursive;
+    color: rgb(255, 239, 219);
+    background-color: transparent;
+    outline: none;
+    box-shadow: 0px 0px 20px 5px rgb(77, 68, 54);
+}
+
+.book-details.modal,
+.update-price.modal {
+    position: absolute;
+    background-color: rgba(255, 247, 236, 0.9);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 30px;
+    box-shadow: 8px 8px 15px 10px rgb(77, 68, 54);
+
+    animation-name: open-details-modal;
+    animation-duration: 1.8s;
+    animation-timing-function: ease-out;
+}
+
+.book-details.modal {
+    border: 2px solid rgba(255, 247, 236, 0.8);
+    width: 55%;
+    height: 80%;
+}
+
+.update-price.modal {
+    font-family: 'Sriracha', cursive;
+    width: 300px;
+    height: 150px;
+    border: 2px solid rgb(105, 97, 83);
+    box-shadow: 4px 4px 10px 0px rgb(77, 68, 54);
+    background-color: rgba(252, 236, 217, 0.94);
+}
+
+.update-price {
+    display: block;
+    text-align: center;
+    margin: 10px auto;
+}
+
+.update-price .submit {
+    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.877);
+    color: rgb(77, 68, 54);
+    font-family: 'Sriracha', cursive;
+    line-height: 23px;
+    font-size: 18px;
+    display: block;
+    margin: 35px auto;
+    border-radius: 5px;
+    border: 2px dashed rgb(105, 97, 83);
+    border: outset rgb(255, 239, 219);
+    background-image: linear-gradient(135deg, rgb(255, 239, 219), rgba(221, 120, 38, 0.2));
+}
+
+@keyframes open-details-modal {
+    0% {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(1, 0);
+    }
+    50% {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(1, 1.05);
+    }
+    100% {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(1, 1);
+    }
+}
+
+.book-details h2 {
+    text-align: center;
+    font-size: 25px;
+    margin: 30px 0 10px;
+    font-family: 'Sriracha', cursive;
+    text-transform: capitalize;
+    color: rgb(105, 95, 78);
+}
+.book-cover {
+    width: 150px;
+    float: left;
+    margin: 10px 20px;
+}
+
+.book-description {
+    padding: 10px 25px;
+    margin-top: 0;
+    background-image: linear-gradient(rgba(255, 247, 236, 0.1), rgba(255, 247, 236, 0.9), rgba(255, 247, 236, 0.1));
+    text-transform: capitalize;
+    height: 70%;
+}
+
+.hide-modal {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 10px;
+    right: 10px;
+    border-radius: 5px;
+    outline: none;
+    background-color: transparent;
+}
+
+.hide-modal:active {
+    background-color: rgba(105, 97, 83, 0.3);
+}
+
+.rate-container {
+    width: 85px;
+    height: 25px;
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+
+.rate {
+    display: inline-block;
+    width: 25px;
+    margin: 0;
+    text-align: center;
+    border: none;
+}
+
+button.rate {
+    font-size: 20px;
+    outline: none;
+    background-color: transparent;
+    font-family: 'Sriracha', cursive;
+    color: rgb(105, 95, 78);
+}
+
+div.rate {
+    font-size: 20px;
+    font-family: 'Sriracha', cursive;
+    color: rgb(105, 95, 78);
+}
+
+div.rate.headline {
+    margin-right: 30px;
+}
+
+.new-book.modal {
+    width: 500px;
+    height: 50vh;
+    padding: 10px;
+    padding-right: 120px;
+    position: absolute;
+    top: 400px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: rgba(252, 236, 217, 0.94);
+
+    border-radius: 30px;
+    border: 2px solid rgb(105, 97, 83);
+    box-shadow: 6px 6px 10px 2px rgb(77, 68, 54);
+
+    font-family: 'Sriracha', cursive;
+
+    animation-name: open-new-bookmodal;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    background-image: url('../img/book-drawing.png');
+    background-repeat: no-repeat;
+    background-size: 40%;
+    background-position: right bottom;
+}
+
+@keyframes open-new-bookmodal {
+    0% {
+        transform: translate(-50%, -110%) scale(0.2);
+        left: 50%;
+        top: 400px;
+    }
+    50% {
+        transform: translate(-50%, -48%) scale(1.1);
+        left: 50%;
+        top: 400px;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        left: 50%;
+        top: 400px;
+    }
+}
+
+.new-book h2 {
+    text-align: center;
+    color: rgb(105, 95, 78);
+}
+
+.new-book.submit {
+    width: 80px;
+    background-color: rgba(255, 255, 255, 0.877);
+    color: rgb(77, 68, 54);
+    font-family: 'Sriracha', cursive;
+    line-height: 23px;
+    font-size: 18px;
+    display: block;
+    margin: 35px auto;
+    border-radius: 5px;
+    border: outset rgb(255, 239, 219);
+    background-color: rgb(252, 252, 252);
+    background-image: linear-gradient(135deg, rgb(255, 239, 219), rgba(221, 120, 38, 0.2));
+}
+
+.new-book label,
+.new-book input {
+    color: rgb(105, 97, 83);
+    font-size: 18px;
+
+    width: 30%;
+    display: block;
+    margin: auto;
+}
+
+.new-book input {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+input[name='book-price']::-webkit-inner-spin-button,
+input[name='book-price']::-webkit-outer-spin-button {
+    appearance: none;
+}
+
+.hide {
+    display: none;
+}
+
+.pagination {
+    margin: auto;
+    height: 30px;
+}
+
+.pagination ul {
+    padding: 0;
+    margin: 5px auto 5px;
+}
+
+.pagination li {
+    list-style: none;
+    display: inline-block;
+}
+
+.pagination button {
+    display: inline-block;
+    height: 30px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    color: rgb(255, 252, 248);
+    text-shadow: 3px 3px 10px rgb(0, 0, 0);
+    font-family: 'Knewave', cursive;
+    font-size: 18px;
+}
+
+.pagination.end-button {
+    width: 50px;
+}
+
+.end-button.next {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.end-button.prev {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+@media screen and (max-width: 768px) {
+}
